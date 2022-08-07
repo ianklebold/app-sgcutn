@@ -1,0 +1,7 @@
+###git ignore###
+
+### IDEA
+.idea/*
+
+### META INF folders and files
+*/META-INF/*
