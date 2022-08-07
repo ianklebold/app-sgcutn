@@ -1,6 +1,8 @@
 package com.msvc.springcloud.usersservice.service.impl;
 
 import com.msvc.springcloud.usersservice.domain.User;
+import com.msvc.springcloud.usersservice.dto.UserDTO;
+import com.msvc.springcloud.usersservice.mapper.UserMapper;
 import com.msvc.springcloud.usersservice.repository.UserRepository;
 import com.msvc.springcloud.usersservice.service.UserService;
 import lombok.AllArgsConstructor;
@@ -15,12 +17,11 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
     @Override
     @Transactional(readOnly = true)
-    public List<User> findAllUsers() {
-        return userRepository.findAll();
-    }
+    public List<UserDTO> findAllUsers() {return userMapper.mapperGetAllUser(userRepository.findAll());}
 
     @Override
     @Transactional(readOnly = true)
