@@ -16,14 +16,18 @@ public class UserMapper {
         List<UserDTO> usersDto = new ArrayList<>();
 
         users.stream()
-                .map(user -> usersDto.add(UserDTO.builder()
-                        .name(user.getName())
-                        .surname(user.getSurname())
-                        .email(user.getEmail())
-                        .id(user.getId())
-                        .build()))
+                .map(user -> usersDto.add(mapperGetDetailUser(user)))
                 .collect(Collectors.toList());
         return usersDto;
+    }
+
+    public UserDTO mapperGetDetailUser(User user){
+        return UserDTO.builder()
+                .name(user.getName())
+                .surname(user.getSurname())
+                .email(user.getEmail())
+                .id(user.getId())
+                .build();
     }
 
 }

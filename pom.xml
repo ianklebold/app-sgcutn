@@ -13,6 +13,7 @@
   <packaging>pom</packaging> <!-- Esto indica el curso principal-->
 
   <modules>
+    <module>courses-service</module>
     <module>users-service</module>
   </modules>
 

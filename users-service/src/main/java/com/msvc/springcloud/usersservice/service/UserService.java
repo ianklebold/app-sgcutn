@@ -2,14 +2,17 @@ package com.msvc.springcloud.usersservice.service;
 
 import com.msvc.springcloud.usersservice.domain.User;
 import com.msvc.springcloud.usersservice.dto.UserDTO;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
     List<UserDTO> findAllUsers();
-    Optional<User> findUserById(Long id);
+    UserDTO findUserById(Long id);
     User saveUser(User user);
-    User updateUser(Long id);
+    Boolean checkMeUser(Long id);
+    User giveUserExists(Long id);
     void deleteUser(Long id);
+    ResponseEntity<?> messageUserNotFound(Long id);
 }
